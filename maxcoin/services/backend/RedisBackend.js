@@ -38,7 +38,6 @@ class RedisBackend {
   }
 
   async max() {
-
     console.log("Connection to Redis");
     console.time("redis-connect");
     const client = this.connect();

@@ -21,3 +21,15 @@ To Run Redis:
 ```cmd
 docker run --name redis -p 7379:6379 -d redis
 ```
+
+## Install MySql
+
+```cmd
+docker pull mysql
+```
+
+To Run Redis:
+
+```cmd
+docker run --name mysql -p 3406:3306 -e MYSQL_ROOT_PASSWORD=mypassword -d mysql
+```

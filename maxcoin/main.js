@@ -3,6 +3,7 @@
 const CoinAPI = require("./services/CoinAPI");
 const MongoBackend = require('./services/backend/MongoBackend');
 const RedisBackend = require('./services/backend/RedisBackend');
+const MySQLBackend = require('./services/backend/MySQLBackend');
 
 async function runCoin() {
   const coinAPI = new CoinAPI();
@@ -14,13 +15,17 @@ async function runMongo() {
   return mongoBackend.max();
 }
 
-
 async function runRedis() {
   const redisBackend = new RedisBackend();
   return redisBackend.max();
 }
 
-runRedis()
+async function runMySQL() {
+  const mySQLBackend = new MySQLBackend();
+  return mySQLBackend.max();
+}
+
+runMySQL()
   .then((result) => {
     console.log(result);
   })
