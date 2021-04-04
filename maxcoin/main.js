@@ -1,14 +1,26 @@
-// const CoinAPI = require("./services/CoinAPI");
-const MongoBackend = require('./services/backend/MongoBackend');
+/* eslint-disable no-unused-vars */
 
-async function run() {
-  const mongoBackend = new MongoBackend();
-  return mongoBackend.max();
-  // const coinAPI = new CoinAPI();
-  // return coinAPI.fetch();
+const CoinAPI = require("./services/CoinAPI");
+const MongoBackend = require('./services/backend/MongoBackend');
+const RedisBackend = require('./services/backend/RedisBackend');
+
+async function runCoin() {
+  const coinAPI = new CoinAPI();
+  return coinAPI.fetch();
 }
 
-run()
+async function runMongo() {
+  const mongoBackend = new MongoBackend();
+  return mongoBackend.max();
+}
+
+
+async function runRedis() {
+  const redisBackend = new RedisBackend();
+  return redisBackend.max();
+}
+
+runRedis()
   .then((result) => {
     console.log(result);
   })
